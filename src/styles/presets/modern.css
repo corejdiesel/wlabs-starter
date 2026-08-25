@@ -1,0 +1,24 @@
+/* Modern — geometric sans, tighter rhythm, more colour. Tech, product,
+   agencies, anything that wants to read as current. */
+@theme {
+  --font-display: 'Satoshi', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-ink: oklch(0.18 0.02 265);
+  --color-ink-muted: oklch(0.52 0.02 265);
+  --color-surface: oklch(1 0 0);
+  --color-surface-alt: oklch(0.97 0.01 265);
+  --color-brand: oklch(0.55 0.19 265);
+  --color-brand-contrast: oklch(1 0 0);
+  --color-line: oklch(0.91 0.01 265);
+
+  --text-hero: clamp(2.4rem, 5.4vw, 4rem);
+  --text-section: clamp(1.6rem, 3vw, 2.25rem);
+  --tracking-display: -0.03em;
+  --leading-display: 1.08;
+
+  --radius-base: 0.75rem;
+  --spacing-section: clamp(3.5rem, 8vw, 6.5rem);
+  --width-prose: 65ch;
+  --width-container: 80rem;
+}

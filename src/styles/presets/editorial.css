@@ -1,0 +1,24 @@
+/* Editorial — serif headlines, generous measure. Consultancies, studios, law,
+   anything that wants to read as considered. */
+@theme {
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-ink: oklch(0.22 0.01 250);
+  --color-ink-muted: oklch(0.48 0.01 250);
+  --color-surface: oklch(0.99 0.004 90);
+  --color-surface-alt: oklch(0.96 0.008 90);
+  --color-brand: oklch(0.48 0.13 25);
+  --color-brand-contrast: oklch(0.99 0.004 90);
+  --color-line: oklch(0.89 0.006 90);
+
+  --text-hero: clamp(2.6rem, 6vw, 4.6rem);
+  --text-section: clamp(1.8rem, 3.4vw, 2.6rem);
+  --tracking-display: -0.02em;
+  --leading-display: 1.05;
+
+  --radius-base: 0.25rem;
+  --spacing-section: clamp(4rem, 9vw, 7.5rem);
+  --width-prose: 68ch;
+  --width-container: 76rem;
+}

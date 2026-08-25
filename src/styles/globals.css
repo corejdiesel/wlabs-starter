@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────────────────────────────────
+   THEME PRESET — this line is the whole restyle.
+   Swap to './presets/modern.css' or './presets/minimal.css', then tune the
+   token values in that file. Nothing below here, and no component, hard-codes
+   a colour or size: if you find yourself editing a component to restyle, that
+   is a bug in the token set, not a reason to edit the component.
+   ───────────────────────────────────────────────────────────────────────── */
+@import './presets/editorial.css';
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-display);
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

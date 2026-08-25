@@ -1,0 +1,24 @@
+/* Minimal — near-monochrome, small type, lots of air. Portfolios, galleries,
+   architecture, anything where the imagery should carry the page. */
+@theme {
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-ink: oklch(0.15 0 0);
+  --color-ink-muted: oklch(0.55 0 0);
+  --color-surface: oklch(1 0 0);
+  --color-surface-alt: oklch(0.975 0 0);
+  --color-brand: oklch(0.15 0 0);
+  --color-brand-contrast: oklch(1 0 0);
+  --color-line: oklch(0.9 0 0);
+
+  --text-hero: clamp(1.9rem, 3.6vw, 3rem);
+  --text-section: clamp(1.25rem, 2.2vw, 1.6rem);
+  --tracking-display: -0.01em;
+  --leading-display: 1.15;
+
+  --radius-base: 0;
+  --spacing-section: clamp(4.5rem, 10vw, 9rem);
+  --width-prose: 62ch;
+  --width-container: 72rem;
+}

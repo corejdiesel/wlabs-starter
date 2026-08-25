@@ -1,0 +1,51 @@
+{
+  "name": "wlabs-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "db:migrate": "cross-env NODE_OPTIONS=--no-deprecation payload migrate",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "seed": "cross-env NODE_OPTIONS=--no-deprecation payload run src/seed/index.ts",
+    "provision": "cross-env NODE_OPTIONS=--no-deprecation tsx scripts/provision.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "^3.85.0",
+    "@payloadcms/email-resend": "^3.85.0",
+    "@payloadcms/next": "^3.85.0",
+    "@payloadcms/plugin-form-builder": "^3.85.0",
+    "@payloadcms/plugin-redirects": "^3.85.0",
+    "@payloadcms/plugin-seo": "^3.85.0",
+    "@payloadcms/richtext-lexical": "^3.85.0",
+    "@payloadcms/storage-s3": "^3.85.0",
+    "cross-env": "^10.1.0",
+    "graphql": "^16.14.1",
+    "next": "16.2.7",
+    "payload": "^3.85.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.7",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
