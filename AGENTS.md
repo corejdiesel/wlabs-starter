@@ -33,6 +33,17 @@ Base for wlabs client sites. See `README.md` for setup.
 
 ## Schema changes
 `push` is on in dev, off in production. Migrations are the source of truth:
-`pnpm payload migrate:create`, commit, then `pnpm db:migrate`. Migration is
-deliberately not part of `pnpm build`, so Vercel builds never hang on an
-interactive prompt.
+`pnpm payload migrate:create`, then commit the generated file.
+
+`pnpm build` runs `payload migrate` before `next build`. This is deliberate:
+the build queries the database (routes using `generateStaticParams`), so a
+deploy against an unmigrated schema fails with `relation "pages" does not
+exist`. Running it in the build also stops code and schema drifting apart on
+deploy. `payload migrate` is non-interactive and idempotent — it skips
+migrations already recorded as applied.
+
+Note this means a preview deploy migrates whatever `DATABASE_URL` it is given.
+Projects sharing one database across environments will have preview builds
+migrate production; additive migrations are safe, destructive ones are not.
+Give a project a separate preview database before writing a destructive
+migration.

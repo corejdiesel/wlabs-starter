@@ -60,8 +60,16 @@ minute.
 until Vercel reports it verified with a certificate issued. Then turn the proxy
 on and set SSL/TLS to **Full (strict)** — "Flexible" causes a redirect loop.
 
-**Restoring a backup.** Nightly `pg_dump` snapshots land in R2 under
-`backups/`, kept 30 days. Restore with `psql "$DATABASE_URL" < dump.sql`.
+**Deploying.** `pnpm build` runs `payload migrate` first, so a deploy always
+applies pending migrations before building. Nothing to remember at deploy time.
+
+**Media on Vercel needs R2.** With `S3_BUCKET` blank, uploads fall back to
+local disk — fine locally, broken on Vercel, whose filesystem is ephemeral and
+read-only. Any deployed site that accepts uploads must have the `S3_*` vars set.
+
+**Restoring a backup.** Once the backup route exists, nightly `pg_dump`
+snapshots land in R2 under `backups/`, kept 30 days. Restore with
+`psql "$DATABASE_URL" < dump.sql`.
 
 ## Content model
 
