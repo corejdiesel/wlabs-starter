@@ -9,6 +9,8 @@ the base for bespoke builds — fork it and delete the guardrails you don't want
 
 ## Quick start
 
+Needs Node 22.23.4 or newer (Payload 3.92+) and pnpm 10.
+
 ```bash
 pnpm install
 cp .env.example .env          # fill in DATABASE_URL + PAYLOAD_SECRET
@@ -62,6 +64,15 @@ on and set SSL/TLS to **Full (strict)** — "Flexible" causes a redirect loop.
 
 **Deploying.** `pnpm build` runs `payload migrate` first, so a deploy always
 applies pending migrations before building. Nothing to remember at deploy time.
+Never point `pnpm dev` at the production database: dev pushes the schema and
+marks the database as dev-pushed, after which `payload migrate` offers to drop
+and rebuild it — and waits for the answer, which hangs a CI build.
+
+**Upgrading Payload.** Bump every `@payloadcms/*` package and `payload` to the
+same version, keep `next` inside the range `@payloadcms/next` declares in its
+peerDependencies, then `pnpm generate:types`, `pnpm payload migrate:create
+<name>` and commit the migration. The 3.93 upgrade needed one migration
+(`reset_password_requested_at` on users).
 
 **Media on Vercel needs R2.** With `S3_BUCKET` blank, uploads fall back to
 local disk — fine locally, broken on Vercel, whose filesystem is ephemeral and
